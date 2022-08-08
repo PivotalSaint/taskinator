@@ -1,5 +1,4 @@
 var formEl=document.querySelector("#task-form");
-var tasksToDoE1= document.querySelector("#tasks-to-do");
 
 var taskFormHandler = function(event){
 
@@ -17,6 +16,13 @@ var taskFormHandler = function(event){
     // send it as an argument to createTaskEl
     createTaskEl(taskDataObj);
     taskInfoEl.innerHTML = "<h3 class='task-name'>"+taskDataObj.name + "</h3><span class ='task-type'>"+ taskDataObj.type + "</span>";
+
+    //validation statement
+    if (!taskNameInput || !taskTypeInput){
+        alert("You need to fill out the task form!");
+        return false
+    }
+    formEl.reset();
 };
 var createTaskEl = function(taskDataObj){
     event.preventDefault();
